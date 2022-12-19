@@ -5,9 +5,10 @@ interface ILayoutProps {
     title: string;
     description: string;
     children: ReactNode;
+    className?: string;
 }
 
-function Layout({ title, description , children }: ILayoutProps) {
+function Layout({ title, description , children, className }: ILayoutProps) {
     return (
         <>
             <Head>
@@ -15,7 +16,7 @@ function Layout({ title, description , children }: ILayoutProps) {
                 <meta name="description" content={description} />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
-            <main className="">
+            <main className={className}>
                 {children}
             </main>
         </>

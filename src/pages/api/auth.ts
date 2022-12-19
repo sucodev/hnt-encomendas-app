@@ -33,14 +33,17 @@ export default function handler(request: NextApiRequest, response: NextApiRespon
         
     if(request.method === "POST") {
         if(request.body.customerCPF !== customerCPF) {
+           setTimeout(() => {
             response.status(401).json({
                 error: true,
                 payload: null,
                 message: 'Não autorizado.'
             });
-            return;
+           }, 3500)
+           return;
         }
 
+      setTimeout(() => {
         response.status(201).json({
             error: null,
             payload: { 
@@ -51,5 +54,6 @@ export default function handler(request: NextApiRequest, response: NextApiRespon
             },
             message: ''
         });
+      }, 3500)
     }
 }

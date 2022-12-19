@@ -1,5 +1,6 @@
 import { createListenerMiddleware } from '@reduxjs/toolkit'
 import Router from 'next/router';
+import { notify } from '../../components/Containers/Toast/utils/notify';
 import { CreateSessionService } from '../../services/CreateSessionService';
 import { userAction } from '../slices';
 
@@ -20,8 +21,11 @@ userMiddleware.startListening({
                 status: response.statusCode,
                 message: response.message,
             }));
+            notify(response.message, 'error');
             return;
         }
+
+        notify('Autenticado com sucesso', 'sucess');
 
         listenerApi.dispatch(userAction.userAuthenticatedSuccess({
             jwt: response.payload.customerJWT,
@@ -31,6 +35,7 @@ userMiddleware.startListening({
                 customerOrders: response.payload.customerOrders
             }
         }));
+        
 
         Router.push('/meus-pedidos')
 

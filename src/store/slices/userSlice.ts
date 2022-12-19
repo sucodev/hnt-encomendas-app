@@ -21,15 +21,12 @@ const userSlice = createSlice({
         userIsAuthenticating(state) {
             state.isLoading = true;
             state.isAuthenticating = true;
-            state.isAuthenticated = false;
-            state.authenticatedFailed = false;
-            state.errorMessage =  '';
-            state.errorStatusCode =  null;
         },
         userAuthenticatedSuccess(state, action) {
             state.isLoading = false;
             state.isAuthenticated = true;
             state.isAuthenticating = false;
+            state.authenticatedFailed = false;
             state.payload.jwt = action.payload.jwt;
             state.payload.user = action.payload.user;
         },
