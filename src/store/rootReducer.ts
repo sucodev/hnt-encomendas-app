@@ -6,7 +6,7 @@ import { persistReducer} from 'redux-persist'
 import { userReducer } from './slices'
 
 
-const userPersistConfig = {
+export const userPersistConfig = {
     key: 'user',
     version: 0,
     storage,

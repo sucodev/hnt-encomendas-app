@@ -18,3 +18,5 @@ export const imageProps = {
 export const heading = 'Acesse para rastrear suas encomendas'
 export const label = 'Para começar digite seu CPF'
 export const placeholder = 'CPF'
+export const submitButton = 'Rastrear Pedido'
+export const msgError = 'CPF é inválido'
