@@ -124,4 +124,22 @@ describe('Form component', () => {
         })
 
     })
+
+    it.only('should be exhibited icon eye visible', async () => {
+        const { getByPlaceholderText, getByTestId, debug } = render(<Provider store={store}><LoginForm /></Provider>)
+
+        const inputElement = getByPlaceholderText(placeholder)
+
+        fireEvent.change(inputElement, {
+            target: { value: '12345678900' }
+        })
+
+        const buttonElement = getByTestId('input-hidden');
+
+        fireEvent.click(buttonElement);
+
+        expect(getByTestId('icon-eye-visible')).toBeInTheDocument();
+
+        debug();
+    })
 })

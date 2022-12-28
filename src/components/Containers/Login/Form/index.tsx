@@ -80,9 +80,9 @@ export function LoginForm() {
                     className='absolute right-4 top-3 outline-gray-500'
                 >
                    {changeVisibleInput ? (
-                     <EyeIcon className='h-6 w-6 text-gray-300 hover:text-gray-400 transition-all' />
+                     <EyeIcon data-testid="icon-eye-visible" className='h-6 w-6 text-gray-300 hover:text-gray-400 transition-all' />
                    ) : (
-                     <EyeSlashIcon className='h-6 w-6 text-gray-300 hover:text-gray-400 transition-all' />
+                     <EyeSlashIcon data-testid="icon-eye-invisible" className='h-6 w-6 text-gray-300 hover:text-gray-400 transition-all' />
                    )}
                 </button>
             </div>
