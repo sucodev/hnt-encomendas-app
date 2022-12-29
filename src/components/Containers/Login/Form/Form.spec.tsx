@@ -125,7 +125,7 @@ describe('Form component', () => {
 
     })
 
-    it.only('should be exhibited icon eye visible', async () => {
+    it('should be exhibited icon eye visible', async () => {
         const { getByPlaceholderText, getByTestId, debug } = render(<Provider store={store}><LoginForm /></Provider>)
 
         const inputElement = getByPlaceholderText(placeholder)
@@ -139,7 +139,5 @@ describe('Form component', () => {
         fireEvent.click(buttonElement);
 
         expect(getByTestId('icon-eye-visible')).toBeInTheDocument();
-
-        debug();
     })
 })

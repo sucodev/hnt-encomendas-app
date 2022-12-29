@@ -29,7 +29,6 @@ const users = [
 
 export default function handler(request: NextApiRequest, response: NextApiResponse) {
     const { customerName, customerCPF, orders: customerOrders, customerJWT } = users[0]
-    console.log(request.body);
         
     if(request.method === "POST") {
         if(request.body.customerCPF !== customerCPF) {

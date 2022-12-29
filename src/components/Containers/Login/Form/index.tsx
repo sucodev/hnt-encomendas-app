@@ -46,8 +46,11 @@ export function LoginForm() {
     }
 
     const onChange = () => {    
-        if(getValues('customerCPF').length === 11 && errors.customerCPF?.type !== "matches") setIsDisabled(false) 
-        else setIsDisabled(true) 
+        if(getValues('customerCPF').match(/^[0-9]+$/) && getValues('customerCPF').length === 11 && errors.customerCPF?.type !== "matches") {
+            setIsDisabled(false)
+        } else { 
+            setIsDisabled(true)
+        }
     }
 
 
@@ -68,7 +71,7 @@ export function LoginForm() {
                     className='border-2 border-[#e0e0e0] p-2 pl-4 rounded-[4px] text-lg w-full outline-transparent aria-[invalid="true"]:border-2 aria-[invalid="true"]:border-red-500'
                     minLength={11}
                     maxLength={11}
-                    {...register('customerCPF', { required: true, minLength:11, maxLength: 11, onChange: onChange, pattern: /^[0-9]+$/})}
+                    {...register('customerCPF', { required: true, minLength:11, maxLength: 11, onChange: onChange, pattern: /^[0-9]+$/ })}
                 />
                 
                 {(errors.customerCPF?.type === "minLength" || (errors.customerCPF?.type === "required") || 
